@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Binary Planets</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@400;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="stars"></div>
+  <div class="container">
+    <header>
+      <h1>🌟 Binary Planets! 🌟</h1>
+      <p class="subtitle">Turn planets <span class="highlight">ON/OFF</span> to match the number:</p>
+    </header>
+    
+    <div class="game-controls">
+      <div class="difficulty-selector">
+        <label>Difficulty:</label>
+        <select id="difficulty">
+          <option value="4">4 Planets (0-15)</option>
+          <option value="8" selected>8 Planets (0-255)</option>
+          <option value="16">16 Planets (0-65,535)</option>
+        </select>
+      </div>
+      <div class="score-display">
+        ⭐ Score: <span id="currentScore">0</span>
+      </div>
+      <div class="high-score">
+        🏆 High Score: <span id="highScore">0</span>
+      </div>
+    </div>
+    
+    <div class="game-area">
+      <div class="decimal-display" id="decimalNumber">13</div>
+      
+      <div class="bulbs-container" id="bulbs"></div>
+      
+      <div class="binary-output">
+        <span>Binary Code:</span>
+        <span id="binaryDigits">00000000</span>
+      </div>
+      
+      <div class="controls">
+        <button id="checkButton" class="btn btn-check"> Check</button>
+        <button id="nextButton" class="btn btn-next"> >></button>
+        <button id="helpButton" class="btn btn-help">❓</button>
+      </div>
+      
+      <div class="message" id="message"></div>
+    </div>
+  </div>
+  
+  <!-- Tutorial Modal -->
+  <div class="modal" id="tutorialModal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>How to Play</h2>
+      <div class="tutorial-step active" data-step="1">
+        <p>Welcome to <strong>Binary Planets!</strong> 👋</p>
+        <p>Your goal is to convert decimal numbers to binary by turning planets ON/OFF.</p>
+      </div>
+      <div class="tutorial-step" data-step="2">
+        <p> Each planet represents a binary digit (bit):</p>
+        <p>Rightmost = 1, then 2, 4, 8, etc.</p>
+        <div class="example-bulbs">
+          <div class="bulb mini on">8</div>
+          <div class="bulb mini off">4</div>
+          <div class="bulb mini on">2</div>
+          <div class="bulb mini off">1</div>
+        </div>
+        <p>This binary code <strong>1 0 1 0</strong> = 8 + 2 = <strong>10</strong></p>
+      </div>
+      <div class="tutorial-step" data-step="3">
+        <p>💡 Click planets to toggle them ON (yellow) or OFF (gray).</p>
+        <p> Press <strong>Check</strong> to verify your answer.</p>
+        <p> Press <strong> >></strong> for a new challenge!</p>
+      </div>
+      <button class="btn btn-next-step">Next Tip</button>
+    </div>
+  </div>
+  
+  <!-- Confetti -->
+  <canvas id="confetti-canvas"></canvas>
+  
+  <!-- Audio -->
+  <audio id="clickSound" src="https://assets.mixkit.co/active_storage/sfx/2575/2575-preview.mp3"></audio>
+  <audio id="winSound" src="https://assets.mixkit.co/active_storage/sfx/2588/2588-preview.mp3"></audio>
+  
+  <script src="script.js"></script>
+</body>
+
+</html>
