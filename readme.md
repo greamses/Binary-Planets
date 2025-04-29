@@ -60,7 +60,7 @@ No installation required - runs directly in modern browsers:
 2. Open `index.html` in any browser  
 
 ```bash
-git clone https://github.com/yourusername/binary-bulbs.git
+git clone https://github.com/greamses/Binary-Planets.git
 ```
 
 ## Development Highlights  
